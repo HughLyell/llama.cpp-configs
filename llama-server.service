@@ -1,0 +1,16 @@
+[Unit]
+Description=llama.cpp server - Qwen3.8-27B GSQ-RCO IQ3_S MTP (Vulkan/gfx1200)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/hughl
+ExecStart=/home/hughl/llama.cpp/build-vk/bin/llama-server --models-preset /home/hughl/models.ini
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=20
+KillSignal=SIGINT
+
+[Install]
+WantedBy=default.target
